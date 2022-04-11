@@ -2,7 +2,7 @@
     {{counter$ | async}}
 </h1>
 
-<!--button (click)="counter = counter + 1">Incrementar</!--button>
-<button-- (click)="counter = counter + 1">Decrementar</button-->
+<button (click)="incrementaContador()">Incrementar</button>
+<button (click)="decrementaContador()">Decrementar</button>
 
-<app-display-contador [counter]="(counter$ | async) || 0"></app-display-contador>
+<app-display-contador></app-display-contador>

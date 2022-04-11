@@ -1,4 +1,4 @@
-import { IAppState } from './store/app.state';
+import { decrementaContador, IAppState, incrementaContador } from './store/app.state';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
@@ -17,4 +17,13 @@ export class AppComponent {
   .pipe(
     map(e => e.counter)
   );
+
+  incrementaContador(){
+    this.store.dispatch(incrementaContador())
+  }
+  decrementaContador(){
+    this.store.dispatch(decrementaContador())
+  }
+
+
 }
