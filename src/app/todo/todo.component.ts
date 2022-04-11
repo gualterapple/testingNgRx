@@ -18,7 +18,6 @@ export class TodoComponent implements OnInit {
     private http: HttpClient){}
 
   ngOnInit(): void {
-
       this.store.dispatch(loadTodos())
   }
 
