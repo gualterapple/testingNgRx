@@ -8,17 +8,26 @@ import { DisplayContadorComponent } from './display-contador/display-contador.co
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
+import { DetalhesUsuarioComponent } from './detalhes-usuario/detalhes-usuario.component';
+import { TodoComponent } from './todo/todo.component';
+import { EffectsModule } from '@ngrx/effects';
+import { TodosEffectService } from './store/todos-effect.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-      DisplayContadorComponent
+      DisplayContadorComponent,
+      DetalhesUsuarioComponent,
+      TodoComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     StoreModule.forRoot({app: appReducer}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([TodosEffectService])
   ],
   providers: [],
   bootstrap: [AppComponent]
